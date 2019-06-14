@@ -2,6 +2,8 @@ import React from "react"
 import { connect } from "react-redux"
 import { signIn, signOut } from "../actions"
 
+const CLIENT_ID = "34166762223-19djordr2cg449nbts16vnmb7i52iokh.apps.googleusercontent.com"
+
 class GoogleAuth extends React.Component {
 	onAuthChange = isSignedIn => {
 		if (isSignedIn) {
@@ -23,17 +25,12 @@ class GoogleAuth extends React.Component {
 		// @ts-ignore
 		window.gapi.load("client:auth2", () => {
 			// @ts-ignore
-			window.gapi.client
-				.init({
-					clientId: "34166762223-19djordr2cg449nbts16vnmb7i52iokh.apps.googleusercontent.com",
-					scope: "email"
-				})
-				.then(() => {
-					// @ts-ignore
-					this.auth = window.gapi.auth2.getAuthInstance()
-					this.onAuthChange(this.auth.isSignedIn.get())
-					this.auth.isSignedIn.listen(this.onAuthChange)
-				})
+			window.gapi.client.init({ clientId: CLIENT_ID, scope: "email" }).then(() => {
+				// @ts-ignore
+				this.auth = window.gapi.auth2.getAuthInstance()
+				this.onAuthChange(this.auth.isSignedIn.get())
+				this.auth.isSignedIn.listen(this.onAuthChange)
+			})
 		})
 	}
 
