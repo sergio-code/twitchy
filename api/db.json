@@ -1,0 +1,22 @@
+{
+  "streams": [
+    {
+      "title": "First stream",
+      "description": "Nothing about, just test",
+      "userId": "0",
+      "id": 1
+    },
+    {
+      "title": "Coding @ Rainy Day",
+      "description": "Coding at rainy day",
+      "userId": "115715541883624114258",
+      "id": 2
+    },
+    {
+      "title": "Refactoring StreamCreate",
+      "description": "StreamCreate and StreamEdit components now using shared StreamForm component",
+      "userId": "115715541883624114258",
+      "id": 4
+    }
+  ]
+}
